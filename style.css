@@ -1,0 +1,323 @@
+/* Import Font */
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap");
+
+/* Custom Properties */
+
+:root {
+  /* Base Font Size */
+
+  font-size: 16px;
+
+  /* Colors */
+
+  --White: hsl(0, 0%, 100%);
+
+  --Stone-100: hsl(30, 54%, 90%);
+  --Stone-150: hsl(30, 18%, 87%);
+  --Stone-600: hsl(30, 10%, 34%);
+  --Stone-900: hsl(24, 5%, 18%);
+
+  --Brown-800: hsl(14, 45%, 36%);
+
+  --Rose-800: hsl(332, 51%, 32%);
+  --Rose-50: hsl(330, 100%, 98%);
+
+  /* Typography */
+
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-28: 1.75rem;
+  --fs-fluid-36-40: clamp(2.25rem, 2.162rem + 0.3756vw, 2.5rem);
+
+  --ff-primary: "Outfit", serif;
+  --ff-heading: "Young Serif", serif;
+
+  --fw-regular: 400;
+  --fw-medium: 600;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --sp-8: 0.5rem;
+  --sp-12: 0.75rem;
+  --sp-16: 1rem;
+  --sp-24: 1.5rem;
+  --sp-32: 2rem;
+  --sp-fluid-0-40: clamp(0rem, -0.8803rem + 3.7559vw, 2.5rem);
+  --sp-fluid-32-40: clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem);
+  --sp-40: 2.5rem;
+  --sp-fluid-0-128: clamp(0rem, -2.8169rem + 12.0188vw, 8rem);
+
+  /* radius */
+
+  --r-12: 0.75rem;
+  --r-24: 1.5rem;
+}
+
+/* CSS Resets */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 100%;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Utility Classes */
+
+.section {
+  display: grid;
+  gap: var(--sp-24);
+}
+
+.hidden {
+  display: none;
+}
+
+.ff-young {
+  font-family: var(--ff-heading);
+}
+
+.fs-h1 {
+  font-size: var(--fs-fluid-36-40);
+}
+.fs-20 {
+  font-size: var(--fs-20);
+}
+
+.fs-28 {
+  font-size: var(--fs-28);
+}
+
+.clr-rose-800 {
+  color: var(--Rose-800);
+}
+
+.clr-br-800 {
+  color: var(--Brown-800);
+}
+
+.clr-900 {
+  color: var(--Stone-900);
+}
+
+.fw-medium {
+  font-weight: var(--fw-medium);
+}
+
+/* General Styling */
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-regular);
+  background-color: var(--Stone-100);
+  color: var(--Stone-600);
+  display: grid;
+  place-items: center;
+}
+
+.main-content {
+  max-width: 736px;
+  background-color: var(--White);
+  margin-top: var(--sp-fluid-0-128);
+}
+
+.primary-header {
+  margin-top: var(--sp-fluid-0-40);
+  margin-inline: var(--sp-fluid-0-40);
+}
+
+.section-wrapper {
+  display: grid;
+  gap: var(--sp-32);
+  padding-inline: var(--sp-fluid-32-40);
+  padding-block: var(--sp-40);
+}
+
+.prep {
+  background-color: var(--Rose-50);
+  border-radius: var(--r-12);
+  display: grid;
+  gap: var(--sp-16);
+  padding: var(--sp-24);
+}
+
+.prep-list {
+  list-style: none;
+  display: grid;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.prep-list > li::before {
+  content: "\2022";
+  color: var(--Rose-800);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-bold);
+  margin-right: var(--sp-16);
+}
+
+.prep-list > li > span {
+  font-weight: var(--fw-bold);
+}
+
+.ingredients-list {
+  list-style: none;
+  display: grid;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.ingredients-list > li::before {
+  content: "\2022";
+  color: var(--Brown-800);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-bold);
+  margin-right: var(--sp-16);
+}
+
+.instructions-list {
+  list-style: none;
+  display: grid;
+  align-items: center;
+  gap: var(--sp-8);
+  counter-reset: custom-counter;
+}
+.instructions-list > li {
+  counter-increment: custom-counter;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+}
+
+.instructions-list > li > p > span {
+  font-weight: var(--fw-bold);
+}
+.instructions-list > li::before {
+  content: counter(custom-counter) ". ";
+  color: var(--Brown-800);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-bold);
+  margin-right: var(--sp-16);
+}
+
+.break {
+  color: var(--Stone-150);
+}
+
+.table {
+  border-collapse: collapse;
+
+  font-size: var(--fs-16);
+}
+
+.table tr:not(:last-child) {
+  border-bottom: 1px solid var(--Stone-150);
+  padding-bottom: 32px;
+}
+
+tr > td:not(:last-child) {
+  padding-block: var(--sp-12);
+  padding-left: var(--sp-32);
+  width: 50%;
+}
+
+tr > td:last-child {
+  color: var(--Brown-800);
+  font-weight: var(--fw-bold);
+}
+
+@media (min-width: 400px) {
+  .main-content {
+    border-radius: var(--r-24);
+  }
+
+  .primary-header {
+    border-radius: var(--r-12);
+    overflow: hidden;
+  }
+
+  .hidden {
+    display: inline;
+  }
+}
